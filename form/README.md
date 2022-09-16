@@ -1,6 +1,6 @@
 # Create a sign up form 
 
-_Note:_ Treat this as as a take-home as if this was a real work task from a PM - use discretion and be pragmatic. Simple is better.
+_Hint:_ Simple is better. Don't feel bad if all you submit is one JS file, one HTML file, and 1 CSS file.
 
 For this interview, you will be creating a sign up form. The form will have the following fields:
 
