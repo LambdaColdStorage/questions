@@ -11,7 +11,7 @@ For this interview, you will be creating a sign up form. The form will have the 
 
 The sign up form should look and behave similar to [Twilio's sign up form](https://www.twilio.com/try-twilio). You can ignore all the page elements and focus this section:
 
-![Twilio sign-up form](https://i.imgur.com/Zk2Uc78.png)
+![Twilio sign-up form](https://i.imgur.com/eZERbKy.png)
 
 
 The goal is to emulate the behavior of this form as closely as possible. We recommend you spend some time playing around with Twilio's form - there are a lot of subtle behaviors that go into a good experience. When in doubt, copy it! 
