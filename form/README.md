@@ -20,8 +20,8 @@ The sign up form should look and behave like [Twilio's sign up form](https://www
 Data should be POST'd to `localhost:5000/api/users` with the following format:
 ```
 {
-    "first_name": <a string, at least one character>,
-    "last_name": <a string, at least one character>,
+    "first_name": <a string, at least two character>,
+    "last_name": <a string, at least two character>,
     "email": <a string that looks like an email>,
     "phone": <a string composed of 10 numerical characters, not starting with "0">
 }
