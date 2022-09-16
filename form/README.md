@@ -15,6 +15,7 @@ The sign up form should look and behave similar to [Twilio's sign up form](https
 
 The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input.
 
+## Requirements
 
 **Your form should:**
 * Perform client-side validation; that is, display errors when a user enters invalid data.
@@ -33,7 +34,7 @@ The goal is to emulate the behavior of Twilio's form as closely as possible. We 
 Let's assume that the user fills out the form using a valid, available email and valid first name, last name, and phone. 
 
 
-## Backend endpoits
+## Backend endpoints
 
 Data should be POST'd to `localhost:5000/api/users` with the following format:
 ```
