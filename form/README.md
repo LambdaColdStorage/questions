@@ -1,19 +1,26 @@
-# Create a sign up form
+# Create a sign up form 
+
+_Note:_ Treat this as as a take-home as if this was a real work task from a PM - use discretion and be pragmatic. Simple is better.
 
 For this interview, you will be creating a sign up form. The form will have the following fields:
+
 - First name 
 - Last name
 - Email
 - Phone number
 
-The sign up form should look and behave like [Twilio's sign up form](https://www.twilio.com/try-twilio). Specifically, it should:
+The sign up form should look and behave similar to [Twilio's sign up form](https://www.twilio.com/try-twilio). Play around with this form. Pay attention to how it provides timely feedback on the user's input. The goal is to emulate the behavior of this form as closely as possible.
 
-- Perform client side validation; that is, display errors when a user enters invalid data (e.g. an invalid email address).
-- Only allow form submission if the client side validation passes.
-- Have similar UI to Twilio's (e.g., focusing on an element should lift and shrink the placeholder text and change the underline color).
-- Submit data to a locally running backend server.
-- Display errors from the backend (if they exist) after submitting the form.
-- Hide the form and display a success message if submitted data passes backend validation.
+**Your form should:**
+- Perform client-side validation; that is, display errors when a user enters invalid data.
+- Only allow form submission when client-side validation passes.
+- Inform the user if their first name, last name, email, or phone is invalid.
+- Inform the user if their email address is taken (see how Twilio does this by using the email `m@lambdal.com` on Twilio).
+- Focusing on an input element lifts and shrinks its placeholder text and changes the underline color.
+- Display errors from the locally running backend upon form submission (if they exist).
+
+**Your form should:**
+
 
 ## Submitting data to the locally running backend
 
@@ -45,7 +52,10 @@ If the input fails validation, the HTTP response will be status 400 and look som
             "phone": None}}
 ```
 
-**Note:** You can use the email address `takenemail@gmail.com` to simulate an email address that's already registered.
+`takenemail@gmail.com`
+
+**Note 1:** You can use the email address  to simulate an email address that's already registered.
+**Note 2:** It's often the case that client-side cannot do the same level of validation as the backend. To emu
 
 
 ## Use discretion to create good UI/UX!
