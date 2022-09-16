@@ -1,6 +1,6 @@
 # Create a sign up form 
 
-_Hint:_ Simple is better. Don't feel bad if all you submit is one JS file, one HTML file, and 1 CSS file.
+**Hint:** Simple is better. Don't feel bad if all you submit is one JS file, one HTML file, and 1 CSS file.
 
 For this interview, you will be creating a sign up form. The form will have the following fields:
 
