@@ -2,7 +2,7 @@
 
 **Hint:** Simple is better. Don't feel bad if all you submit is one JS file, one HTML file, and 1 CSS file.
 
-For this interview, you will be creating a sign up form. The form will have the following fields:
+For this take-home assignment, you will be creating a sign up form. The form will have the following fields:
 
 - First name 
 - Last name
