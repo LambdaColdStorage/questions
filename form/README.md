@@ -9,7 +9,7 @@ For this take-home assignment, you will be creating a sign up form. The form wil
 - Email
 - Phone number
 
-The sign up form should look and behave similar to [Twilio's sign up form](https://www.twilio.com/try-twilio). Inc creating your form, you can ignore all the page elements and focus this section:
+The sign up form should look and behave similar to [Twilio's sign up form](https://www.twilio.com/try-twilio). Focus specifically on this section:
 
 ![Twilio sign-up form](https://i.imgur.com/eZERbKy.png)
 
