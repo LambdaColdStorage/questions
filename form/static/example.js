@@ -50,19 +50,26 @@ app.controller("SignUpFormController", function ($scope, $controller, $http) {
     if (!$scope.account.email) {
       return;
     }
-    let errors = "Enter a valid email";
     if ($scope.account.email && /\S+@\S+\.\S+/.test($scope.account.email)) {
-      errors = null;
+      $http
+        .post(
+          "/api/is-email-taken",
+          JSON.stringify($scope.account.email),
+          "json"
+        )
+        .then(
+          function (r) {
+            if (r.data.is_taken) {
+              $scope.errors.email = "That email is taken";
+            } else {
+              $scope.errors.email = null;
+            }
+          },
+          function (r) {}
+        );
+    } else {
+      $scope.errors.email = "That's not a valid email address";
     }
-    $http
-      .post("/api/is-email-taken", JSON.stringify($scope.account.email), "json")
-      .then(
-        function (r) {
-          console.log(r);
-        },
-        function (r) {}
-      );
-    $scope.errors.email = errors;
   };
 
   $scope.setPasswordErrors = function () {
