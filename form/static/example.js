@@ -5,6 +5,9 @@ app.config(function ($interpolateProvider) {
 });
 
 app.controller("SignUpFormController", function ($scope, $controller, $http) {
+  $http.defaults.xsrfCookieName = "csrftoken";
+  $http.defaults.xsrfHeaderName = "X-CSRFToken";
+
   $scope.init = function () {
     document.getElementById("first-name-input").focus();
     $scope.account = {
@@ -51,6 +54,14 @@ app.controller("SignUpFormController", function ($scope, $controller, $http) {
     if ($scope.account.email && /\S+@\S+\.\S+/.test($scope.account.email)) {
       errors = null;
     }
+    $http
+      .post("/api/is-email-taken", JSON.stringify($scope.account.email), "json")
+      .then(
+        function (r) {
+          console.log(r);
+        },
+        function (r) {}
+      );
     $scope.errors.email = errors;
   };
 

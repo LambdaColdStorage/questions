@@ -2,15 +2,25 @@ import json
 import re
 from flask import Flask
 from flask import request
+from flask import render_template
 from flask import Response
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_url_path="/static",
+    static_folder="static",
+    template_folder="templates",
+)
+
+
+@app.route("/")
+def form():
+    return render_template("example.html")
 
 
 @app.route("/api/is-email-taken", methods=["POST"])
 def check_if_email_taken():
-    payload = request.get_json()
-    email = payload.get("email")
+    email = request.get_json()
     if email == "takenemail@gmail.com":
         is_taken = True
     else:
