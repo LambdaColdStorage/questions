@@ -16,17 +16,15 @@ The sign up form should look and behave similar to [Twilio's sign up form](https
 The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input. **Note:** See how Twilio handles an already-registered emai using`m@lambdal.com`.
 
 ## Requirements
-
-**Your form should:**
-* Perform client-side validation; that is, display errors when a user enters invalid data. Specifically, ensure that:
+* Your code should perform client-side validation and display errors when applicable. Specifically, ensure that:
    * `first_name` is a string of at least two characters
    * `last_name` is a string of at least two characters
    * `email` is not already registered and a string that looks like an email (just write a basic sanity check)
    * `phone` is string composed of 10 numerical characters, not starting with a zero
-* Look & behave similarly to Twilio. For example, focusing on an input element should lift and shrink its placeholder text and change its the underline color.
-* Submit data to a locally running backend server (see below).
-* Display any errors returned by the locally running backend server upon form submission.
-
+* The form should look & behave similarly to Twilio. For example:
+   *  Focusing on an input element should lift and shrink its placeholder text and change its the underline color
+   *  Unfocusing on an input field should trigger validation
+* The form should submit its data to a locally running backend server (see below) and display any errors it returns.
 
 **Special phone number**
 Let's assume that the user fills out the form using a valid, available email and valid first name, last name, and phone.
