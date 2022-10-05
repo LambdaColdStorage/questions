@@ -34,21 +34,32 @@ The goal is to emulate the behavior of Twilio's form as closely as possible. We 
 Let's assume that the user fills out the form using a valid, available email and valid first name, last name, and phone.
 
 
-# Backend endpoints
+## Backend endpoints
 
-## Check if an email is taken
+### Check if an email is taken
+```
+POST http://localhost:5000/api/is-email-taken
+```
+##### Request format
+```
+{
+    "email": <an email address>
+}
+```
+
+##### Response
+```
+{
+    "is_taken": [true|false],
+}
+```
+
+### Register a user
 ```
 POST http://localhost:5000/api/is-email-taken
 ```
 
-
-
-## Register a user
-```
-POST http://localhost:5000/api/is-email-taken
-```
-
-#### Request format
+##### Request format
 ```
 {
     "first_name": <a string, at least two character>,
@@ -57,7 +68,7 @@ POST http://localhost:5000/api/is-email-taken
     "phone": <a string composed of 10 numerical characters, not starting with "0">
 }
 ```
-#### Response
+##### Response
 
 The backend will validate input, including an additional check on whether the
 email is already registered. If the input is valid, the HTTP response will be
