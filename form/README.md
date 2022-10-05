@@ -36,7 +36,7 @@ Let's assume that the user fills out the form using a valid, available email and
 
 ## Backend endpoints
 
-**Check if an email is taken**
+### Check if an email is taken
 ```
 POST http://localhost:5000/api/is-email-taken
 ```
