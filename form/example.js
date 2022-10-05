@@ -6,6 +6,7 @@ app.config(function ($interpolateProvider) {
 
 app.controller("SignUpFormController", function ($scope, $controller, $http) {
   $scope.init = function () {
+    document.getElementById("first-name-input").focus();
     $scope.account = {
       first_name: "",
       last_name: "",
