@@ -40,14 +40,14 @@ Let's assume that the user fills out the form using a valid, available email and
 ```
 POST http://localhost:5000/api/is-email-taken
 ```
-**Request format**
+##### Request format
 ```
 {
     "email": <an email address>
 }
 ```
 
-**Response**
+##### Response
 The backend will return a JSON object that lets you know if the email address is taken.
 ```
 {
@@ -55,7 +55,7 @@ The backend will return a JSON object that lets you know if the email address is
 }
 ```
 
-**Special inputs**
+##### Special inputs
 - email: `m@lambdal.com` will be considered taken
 
 ### Register a user
@@ -63,7 +63,7 @@ The backend will return a JSON object that lets you know if the email address is
 POST http://localhost:5000/api/is-email-taken
 ```
 
-**Request format**
+##### Request format
 ```
 {
     "first_name": <a string, at least two character>,
@@ -72,7 +72,7 @@ POST http://localhost:5000/api/is-email-taken
     "phone": <a string composed of 10 numerical characters, not starting with "0">
 }
 ```
-**Response**
+##### Response
 
 The backend will validate input, including an additional check on whether the
 email is already registered. If the input is valid, the HTTP response will be
@@ -94,7 +94,7 @@ If the input fails validation, the HTTP response will be status 400 and look som
             "phone": None}}
 ```
 
-**Special inputs**
+##### Special inputs
 - email: `takenemail@gmail.com` (to simulate a taken phone number)
 - phone: 7777777777 (to simulate an unreachable phone number)
 
