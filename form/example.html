@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up form</title>
+    <link rel="stylesheet" href="example.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="example.js"></script>
+  </head>
+  <body ng-app="lambda">
+    <form ng-controller="SignUpFormController">
+      <div class="input-container">
+        <input id="first-name-input"
+               ng-blur="setFirstNameErrors()"
+               ng-change="errors.first_name = null"
+               type="text"
+               name="first-name"
+               autocomplete="given-name"
+               ng-model="account.first_name"
+               class="input-with-dynamic-label"
+               ng-class="{empty: account.first_name.length === 0, errors: errors.first_name}" />
+        <label for="first-name-input"
+               class="shrinking-label">First name</label>
+        <div ng-show="errors.first_name" class="err-msg">[[ errors.first_name ]]</div>
+      </div>
+
+      <div class="input-container">
+        <input id="last-name-input"
+               ng-blur="setLastNameErrors()"
+               ng-change="errors.last_name = null"
+               type="text"
+               name="last-name"
+               autocomplete="family-name"
+               ng-model="account.last_name"
+               class="input-with-dynamic-label"
+               ng-class="{empty: account.last_name.length === 0, errors: errors.last_name}" />
+        <label for="last-name-input"
+               class="shrinking-label">Last name</label>
+        <div ng-show="errors.last_name" class="err-msg">[[ errors.last_name ]]</div>
+      </div>
+      <div class="input-container">
+        <input id="email-input"
+               ng-blur="setEmailErrors()"
+               ng-change="errors.email = null"
+               type="text"
+               name="email"
+               autocomplete="email"
+               ng-model="account.email"
+               class="input-with-dynamic-label"
+               ng-class="{empty: account.email.length === 0, errors: errors.email}" />
+        <label for="email-input"
+               class="shrinking-label">Work email</label>
+        <div ng-show="errors.email" class="err-msg">[[ errors.email ]]</div>
+      </div>
+      <div class="input-container">
+        <input id="password-input"
+               ng-blur="setPasswordErrors()"
+               ng-change="errors.password = null"
+               type="password"
+               name="password"
+               autocomplete="new-password"
+               ng-model="account.password"
+               class="input-with-dynamic-label"
+               ng-class="{empty: account.password.length === 0, errors: errors.password}" />
+        <label for="password-input"
+               class="shrinking-label">Password</label>
+        <div ng-show="errors.password" class="err-msg">[[ errors.password ]]</div>
+      </div>
+    </form>
+  </body>
+</html>
