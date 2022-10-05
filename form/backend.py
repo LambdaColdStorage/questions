@@ -7,6 +7,21 @@ from flask import Response
 app = Flask(__name__)
 
 
+@app.route("/api/is-email-taken", methods=["POST"])
+def check_if_email_taken():
+    payload = request.get_json()
+    email = payload.get("email")
+    if email == "takenemail@gmail.com":
+        is_taken = True
+    else:
+        is_taken = False
+    return Response(
+        json.dumps({"is_taken": is_taken}),
+        status=200,
+        mimetype="application/json",
+    )
+
+
 @app.route("/api/users", methods=["POST"])
 def create_user():
     payload = request.get_json()
@@ -15,13 +30,13 @@ def create_user():
     first_name = payload.get("first_name")
     last_name = payload.get("last_name")
     email = payload.get("email")
-    phone = payload.get("phone")
+    password = payload.get("password")
 
     errors = {}
     errors["first_name"] = get_first_name_errors(first_name)
     errors["last_name"] = get_last_name_errors(last_name)
     errors["email"] = get_email_errors(email)
-    errors["phone"] = get_phone_errors(phone)
+    errors["password"] = get_password_errors(password)
 
     is_error_free = True
     for field, error in errors.items():
@@ -44,14 +59,14 @@ def get_first_name_errors(first_name):
     if type(first_name) is str and len(first_name) > 1:
         return None
     else:
-        return "That doesn't look like a first name"
+        return "First name must be at least 2 characters"
 
 
 def get_last_name_errors(last_name):
     if type(last_name) is str and len(last_name) > 1:
         return None
     else:
-        return "That doesn't look like a last name"
+        return "Last name must be at least 2 characters"
 
 
 def get_email_errors(email):
@@ -71,13 +86,9 @@ def get_email_errors(email):
         return "That's not a valid email address"
 
 
-def get_phone_errors(phone):
-    error_msg = "That isn't a valid phone number"
-    if type(phone) is str and len(phone) == 10 and phone[0] != "0":
-        try:
-            int(phone)
-        except Exception:
-            return error_msg
-        else:
-            return None
-    return error_msg
+def get_password_errors(password):
+    if password == "123123":
+        return "That password is known to be insecure"
+    if type(password) is not str or len(password) <= 12:
+        return "That password isn't long enough"
+    return None

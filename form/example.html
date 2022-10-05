@@ -11,7 +11,7 @@
     <script src="example.js"></script>
   </head>
   <body ng-app="lambda">
-    <form ng-controller="SignUpFormController">
+    <form ng-controller="SignUpFormController" ng-init="init()">
       <div class="input-container">
         <input id="first-name-input"
                ng-blur="setFirstNameErrors()"
