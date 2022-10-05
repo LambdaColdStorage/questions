@@ -57,20 +57,38 @@ body
     overflow: auto
     text-align: center
 
+button, input[type="submit"], input[type="button"]
+    cursor: pointer
+    border: none
+    background: none
+    letter-spacing: .025em
+    -webkit-font-smoothing: antialiased
+    text-shadow: none
+    text-align: center
+    display: block
+    font-weight: 500
+    font-size: 15px
+    transition: background-color 0.3s
+    -webkit-transition: background-color 0.3s
+    height: 50px
+    line-height: 50px
+    padding: 0 48px
+    color: white
+    background-color: $dark-purple
+    width: 100%
+    margin-top: 48px
+    &:focus
+        outline: 0
+    &:hover
+        background-color: #a670ee
 h1
     font-size: 60px
     font-weight: bold
     margin-bottom: 60px
 
 form#sign-up-form
-    position: absolute
-    top: 50%
-    -ms-transform: translateY(-50%)
-    transform: translateY(-50%)
-    left: 0
-    right: 0
     width: 512px
-    margin: auto
+    margin: 128px auto
     text-align: left
 
 input
@@ -138,6 +156,8 @@ label
         margin-top: 4px
         color: #e01e5a
         font-size: 13px
+        min-height: 16px
+
 
 .input-container.flex
     display: flex

@@ -97,8 +97,8 @@ def get_email_errors(email):
 
 
 def get_password_errors(password):
-    if password == "123123":
+    if password == "123123123123":
         return "That password is known to be insecure"
     if type(password) is not str or len(password) <= 12:
-        return "That password isn't long enough"
+        return "Must be at least 10 characters"
     return None

@@ -70,6 +70,10 @@
                class="shrinking-label">Password</label>
         <div ng-show="errors.password" class="err-msg">[[ errors.password ]]</div>
       </div>
+      <button ng-click="signUp()"
+              ng-class="{disabled: !isSignUpButtonEnabled}"
+              type="submit"
+              class="external cta blue">Sign up</button>
     </form>
   </body>
 </html>

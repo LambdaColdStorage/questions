@@ -82,4 +82,15 @@ app.controller("SignUpFormController", function ($scope, $controller, $http) {
     }
     $scope.errors.password = errors;
   };
+
+  $scope.signUp = function () {
+    $http.post("/api/users", JSON.stringify($scope.account), "json").then(
+      function (r) {
+        $scope.errors = r.data;
+      },
+      function (r) {
+        $scope.errors = r.data.errors;
+      }
+    );
+  };
 });
