@@ -13,18 +13,16 @@ The sign up form should look and behave similar to [Twilio's sign up form](https
 
 ![Twilio sign-up form](https://i.imgur.com/eZERbKy.png)
 
-The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input.
+The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input. **Note:** See how Twilio handles an already-registered emai using`m@lambdal.com`.
 
 ## Requirements
 
 **Your form should:**
-* Perform client-side validation; that is, display errors when a user enters invalid data.
-* Only allow form submission if client-side validation passes. Specifically, only allow form submission if:
-   * First name is valid (a string of at least two characters).
-   * Last name is valid (a string of at least two characters).
-   * Email is valid (a string that looks like an email - just write your own basic sanity check).
-   * Email is available (there is an API endpoint for checking this). You can see how Twilio does this using the email `m@lambdal.com`.
-   * Phone number valid (a string composed of 10 numerical characters, not starting with "0").
+* Perform client-side validation; that is, display errors when a user enters invalid data. Specifically, ensure that:
+   * `first_name` is a string of at least two characters
+   * `last_name` is a string of at least two characters
+   * `email` is not already registered and a string that looks like an email (just write a basic sanity check)
+   * `phone` is string composed of 10 numerical characters, not starting with a zero
 * Look & behave similarly to Twilio. For example, focusing on an input element should lift and shrink its placeholder text and change its the underline color.
 * Submit data to a locally running backend server (see below).
 * Display any errors returned by the locally running backend server upon form submission.
