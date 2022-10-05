@@ -13,42 +13,53 @@ The sign up form should look and behave similar to [Twilio's sign up form](https
 
 ![Twilio sign-up form](https://i.imgur.com/eZERbKy.png)
 
-The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input.
+The goal is to emulate the behavior of Twilio's form as closely as possible. We recommend you spend some time playing around it. Pay attention to how it provides timely validation to user input. **Note:** See how Twilio handles an already-registered emai using`m@lambdal.com`.
 
 ## Requirements
-
-**Your form should:**
-* Perform client-side validation; that is, display errors when a user enters invalid data.
-* Only allow form submission if client-side validation passes. Specifically, only allow form submission if:
-   * First name is valid (a string of at least two characters).
-   * Last name is valid (a string of at least two characters).
-   * Email is valid (a string that looks like an email - just write your own basic sanity check).
-   * Email is available (there is an API endpoint for checking this). You can see how Twilio does this using the email `m@lambdal.com`.
-   * Phone number valid (a string composed of 10 numerical characters, not starting with "0").
-* Look & behave similarly to Twilio. For example, focusing on an input element should lift and shrink its placeholder text and change its the underline color.
-* Submit data to a locally running backend server (see below).
-* Display any errors returned by the locally running backend server upon form submission.
-
+* Your code should perform client-side validation and display errors when applicable. Specifically, ensure that:
+   * `first_name` is a string of at least two characters
+   * `last_name` is a string of at least two characters
+   * `email` is not already registered and a string that looks like an email (just write a basic sanity check)
+   * `phone` is string composed of 10 numerical characters, not starting with a zero
+* The form should look & behave similarly to Twilio. For example:
+   *  Focusing on an input element should lift and shrink its placeholder text and change its the underline color
+   *  Unfocusing on an input field should trigger validation
+* The form should submit its data to a locally running backend server (see below) and display any errors it returns.
 
 **Special phone number**
 Let's assume that the user fills out the form using a valid, available email and valid first name, last name, and phone.
 
 
-# Backend endpoints
+## Backend endpoints
 
-## Check if an email is taken
+### Check if an email is taken
+```
+POST http://localhost:5000/api/is-email-taken
+```
+##### Request format
+```
+{
+    "email": <an email address>
+}
+```
+
+##### Response
+The backend will return a JSON object that lets you know if the email address is taken.
+```
+{
+    "is_taken": [true|false],
+}
+```
+
+##### Special inputs
+- email: `m@lambdal.com` will be considered taken
+
+### Register a user
 ```
 POST http://localhost:5000/api/is-email-taken
 ```
 
-
-
-## Register a user
-```
-POST http://localhost:5000/api/is-email-taken
-```
-
-#### Request format
+##### Request format
 ```
 {
     "first_name": <a string, at least two character>,
@@ -57,11 +68,11 @@ POST http://localhost:5000/api/is-email-taken
     "phone": <a string composed of 10 numerical characters, not starting with "0">
 }
 ```
-#### Response
+##### Response
 
 The backend will validate input, including an additional check on whether the
 email is already registered. If the input is valid, the HTTP response will be
-status 200 and look like this:
+status 200 and return a JSON object that looks like this:
 
 ```
 {"errors": {"first_name": None,
@@ -79,7 +90,7 @@ If the input fails validation, the HTTP response will be status 400 and look som
             "phone": None}}
 ```
 
-**Special inputs**
+##### Special inputs
 - email: `takenemail@gmail.com` (to simulate a taken phone number)
 - phone: 7777777777 (to simulate an unreachable phone number)
 
