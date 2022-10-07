@@ -7,9 +7,14 @@ For this take-home assignment, you will be creating a sign up form. The form wil
 - First name
 - Last name
 - Email
-- Phone number
+- Password
 
-The sign up form should look and behave similar to [Twilio's sign up form](https://www.twilio.com/try-twilio). Focus specifically on this section:
+Before getting started, clone this repository,The sign up form should look and behave similar to the form served at `localhost:5000`
+
+The backend server can be run locally after cloning this repository and running the following command:
+```
+flask --app backend run
+```
 
 ![Twilio sign-up form](https://i.imgur.com/eZERbKy.png)
 
